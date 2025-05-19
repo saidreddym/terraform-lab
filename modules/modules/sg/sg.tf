@@ -9,19 +9,19 @@ resource "aws_security_group" "allow-all" {
     from_port        = ingress.value
     to_port          = ingress.value
     protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]   # Use with caution!
+    cidr_blocks      = ingress.value   # Use with caution!
     
     }
 }
  
   
 
-    /*tags = {
+    tags = {
     Name        = var.vpc_name
     Owner       = local.Owner
     costcenter  = local.costcenter
     TeamDL      = local.TeamDL
     environment = var.environment
-  }*/
+  }
 }
 
