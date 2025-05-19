@@ -235,28 +235,22 @@ resource "aws_eip" "dev_ngw_eip_for_ec2_mq_db" {
   prevent_destroy = true
 }
 
-
-  tags = merge(
+tags = merge(
     {
       "Name" = "${var.dev_vpc_name}-${var.env}-eip-for-ec2-mq-db"
     },
   var.dev_tags)
 }
 
+resource "aws_nat_gateway" "dev_private_ec2_nat_gw_att" {
+  allocation_id = aws_eip.dev_ngw_eip_for_ec2_mq_db.id
+  subnet_id     = aws_subnet.dev_public_ec2_subnet-02.id
+tags = merge(
+    {
+      "Name" = "${var.dev_vpc_name}-${var.env}-ngw-for-ec2-mq-db"
+    },
+  var.dev_tags)
+}
 
-
-
-/*resource "aws_nat_gateway" "dev_private_ec2_nat_gw_att" {
-  allocation_id = aws_eip.example.id
-  subnet_id     = aws_subnet.example.id
-
-  tags = {
-    Name = "gw NAT"
-  }
-
-  # To ensure proper ordering, it is recommended to add an explicit dependency
-  # on the Internet Gateway for the VPC.
-  depends_on = [aws_internet_gateway.example]
-}*/
 
 

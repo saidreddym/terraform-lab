@@ -7,8 +7,8 @@ module "network" {
   public_subnet_cidrs      = ["10.0.10.0/24", "10.0.20.0/24", "10.0.30.0/24"]
   private_subnet_amq_cidrs = ["10.0.40.0/24", "10.0.50.0/24", "10.0.60.0/24"]
   private_subnet_rmq_cidrs = ["10.0.70.0/24", "10.0.80.0/24", "10.0.90.0/24"]
-  private_subnet_db_cidrs = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
-  azs = var.azs
+  private_subnet_db_cidrs  = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+  azs                      = var.azs
   env                      = var.env
 
 }
