@@ -226,3 +226,37 @@ resource "aws_route_table_association" "dev-db-sn-mongo-rt-pvt-association" {
   subnet_id      = aws_subnet.dev_private_mongo_db_subnet_05[count.index].id
   route_table_id = aws_route_table.dev-private-rt-mongo-db-05.id
 }
+
+##########################################################################################
+###################EC2 PVT RT- NAT GW #############
+resource "aws_eip" "dev_ngw_eip_for_ec2_mq_db" {
+  vpc = true
+  lifecycle {
+  prevent_destroy = true
+}
+
+
+  tags = merge(
+    {
+      "Name" = "${var.dev_vpc_name}-${var.env}_eip_ec2_mq_db"
+    },
+  var.dev_tags)
+}
+
+
+
+
+/*resource "aws_nat_gateway" "dev_private_ec2_nat_gw_att" {
+  allocation_id = aws_eip.example.id
+  subnet_id     = aws_subnet.example.id
+
+  tags = {
+    Name = "gw NAT"
+  }
+
+  # To ensure proper ordering, it is recommended to add an explicit dependency
+  # on the Internet Gateway for the VPC.
+  depends_on = [aws_internet_gateway.example]
+}*/
+
+
