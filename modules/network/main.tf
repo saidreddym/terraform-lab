@@ -98,10 +98,10 @@ resource "aws_route_table" "dev-ec2-private-rt-02" {
   vpc_id = aws_vpc.lab-vpc.id
  
 
-  route {
+  /*route {
       cidr_block = element(var.private_subnet_cidrs, count.index)
     gateway_id = aws_internet_gateway.dev-igw.id
-  }
+  }*/
 
  tags = merge(
     {
