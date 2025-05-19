@@ -10,5 +10,10 @@ module "network" {
   private_subnet_db_cidrs  = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
   azs                      = var.azs
   env                      = var.env
-
 }
+module "s3" {
+    source = "./modules/s3"
+    
+  
+}
+
