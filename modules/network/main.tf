@@ -92,7 +92,7 @@ resource "aws_internet_gateway" "dev-igw" {
 resource "aws_route_table" "dev-ec2-private-rt-01" {
 
   vpc_id = aws_vpc.lab-vpc.id
-  count = length(var.private_subnet_cidrs )
+  /*count = length(var.private_subnet_cidrs )*/
   /*route {
       cidr_block = element(var.private_subnet_cidrs, count.index)
     gateway_id = aws_internet_gateway.dev-igw.id
@@ -107,7 +107,7 @@ resource "aws_route_table" "dev-ec2-private-rt-01" {
 }
 resource "aws_route_table" "dev-ec2-public-rt-02" {
   vpc_id = aws_vpc.lab-vpc.id
-  count = length(var.public_subnet_cidrs)
+  /*count = length(var.public_subnet_cidrs)*/
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -126,7 +126,7 @@ resource "aws_route_table" "dev-ec2-public-rt-02" {
 
 resource "aws_route_table" "dev-private-rt-amq-03" {
   vpc_id = aws_vpc.lab-vpc.id
-  count = length(var.private_subnet_amq_cidrs )
+  /*count = length(var.private_subnet_amq_cidrs )*/
   /*route {
     cidr_block = element(var.private_subnet_amq_cidrs, count.index)
     gateway_id = aws_internet_gateway.dev-igw.id
@@ -134,7 +134,7 @@ resource "aws_route_table" "dev-private-rt-amq-03" {
 
  tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-private-amq-rt-04"
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-amq-rt-03"
       /*"Name" = "${var.dev_vpc_name}-${var.env}-private-amq-rt${count.index + 1}"*/
     },
   var.dev_tags)
@@ -142,7 +142,7 @@ resource "aws_route_table" "dev-private-rt-amq-03" {
 
 resource "aws_route_table" "dev-private-rt-rmq-04" {
   vpc_id = aws_vpc.lab-vpc.id
-  count = length(var.private_subnet_rmq_cidrs)
+  /*count = length(var.private_subnet_rmq_cidrs)*/
 
   /*route {
     cidr_block = element(var.private_subnet_rmq_cidrs, count.index)
@@ -151,7 +151,7 @@ resource "aws_route_table" "dev-private-rt-rmq-04" {
 
  tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-rt-03"
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-rt-04"
       /*"Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-rt${count.index + 1}"*/
     },
   var.dev_tags)
