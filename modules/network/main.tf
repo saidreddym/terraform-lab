@@ -70,7 +70,7 @@ resource "aws_internet_gateway" "dev-igw" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-igw${count.index + 1}"
+      "Name" = "${var.dev_vpc_name}-${var.env}-igw"
     },
   var.dev_tags)
 }
