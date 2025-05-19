@@ -1,5 +1,8 @@
 variable "dev_cidr_block" {}
 variable "dev_tags" {}
-variable "dev_vpc_name" {
-  
-}
+variable "dev_vpc_name" {}
+variable "env" {}
+variable "private_subnet_cidrs" {}
+variable "public_subnet_cidrs" {}
+variable "private_subnet_rmq_cidrs" {}
+variable "private_subnet_amq_cidrs" {}

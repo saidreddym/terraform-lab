@@ -1,5 +1,5 @@
 variable "dev_cidr_block" {
-    default = "10.12.0.0/16"
+    default = "10.0.0.0/16"
 }
 
 #Approved-Tags
@@ -16,7 +16,8 @@ variable "dev_tags" {
 }
 
 variable "dev_vpc_name" {
-    type = string
-    default = "dev-vpc-lab-01"
-  
+     default = "dev-vpc"
+}
+variable "env" {
+    default = dev
 }
