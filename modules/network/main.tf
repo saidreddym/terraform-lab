@@ -82,7 +82,7 @@ resource "aws_route_table" "dev-ec2-public-rt-01" {
   count = length(var.public_subnet_cidrs)
 
   route {
-    cidr_block = element(var.public_subnet_cidrs, count.index)
+    cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.dev-igw.id
   }
 
