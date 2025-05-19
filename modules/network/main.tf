@@ -110,7 +110,7 @@ resource "aws_route_table" "dev-ec2-private-rt-01" {
 
   vpc_id = aws_vpc.lab-vpc.id
   count = length(var.private_subnet_cidrs )
-  route {
+  /*route {
       cidr_block = element(var.private_subnet_cidrs, count.index)
     gateway_id = aws_internet_gateway.dev-igw.id
   }*/
@@ -130,7 +130,7 @@ resource "aws_route_table" "dev-private-rt-rmq-04" {
   vpc_id = aws_vpc.lab-vpc.id
   count = length(var.private_subnet_rmq_cidrs)
 
-  route {
+  /*route {
     cidr_block = element(var.private_subnet_rmq_cidrs, count.index)
     gateway_id = aws_internet_gateway.dev-igw.id
   }*/
@@ -146,7 +146,7 @@ resource "aws_route_table" "dev-private-rt-rmq-04" {
 resource "aws_route_table" "dev-private-rt-amq-03" {
   vpc_id = aws_vpc.lab-vpc.id
   count = length(var.private_subnet_amq_cidrs )
-  route {
+  /*route {
     cidr_block = element(var.private_subnet_amq_cidrs, count.index)
     gateway_id = aws_internet_gateway.dev-igw.id
   }*/
