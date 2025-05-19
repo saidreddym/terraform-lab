@@ -19,7 +19,7 @@ resource "aws_security_group" "allow-all" {
     Owner = var.owner
     costcenter = var.costcenter
     TeamDL =  var.TeamDL
-    environment = "${var.environment}"
+    environment = var.environment
   }
 }
 

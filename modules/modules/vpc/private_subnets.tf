@@ -6,10 +6,10 @@ resource "aws_subnet" "private-subnet" {
 
     tags = {
       Name = "${var.vpc_name}-private-subnet-${count.index}"
-      Owner = local.Owner
-    costcenter = local.costcenter
-    TeamDL =  local.TeamDL
-    environment = "${var.environment}"
+      Owner = var.owner
+    costcenter = var.costcenter
+    TeamDL =  var.TeamDL
+    environment = var.environment
     }
   
 }

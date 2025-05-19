@@ -3,13 +3,12 @@ resource "aws_vpc" "default" {
   instance_tenancy = "default"
   enable_dns_hostnames = "true"
 
-
-  tags = {
-    Name = "${var.vpc_name}"
+tags = {
+    Name = var.vpc_name
     Owner = var.owner
     costcenter = var.costcenter
     TeamDL =  var.TeamDL
-    environment = "${var.environment}"
+    environment = var.environment
   }
 }
 
