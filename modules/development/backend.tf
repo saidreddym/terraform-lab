@@ -1,0 +1,7 @@
+terraform {
+  backend "s3" {
+    bucket = "paas-sbg-during-dr-tf-store"
+    key    = "sbg-duringdr-terraform.tfstate"
+    region = "eu-west-1"
+  }
+}
