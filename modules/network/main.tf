@@ -145,3 +145,11 @@ resource "aws_route_table" "dev-private-rt-amq-04" {
     },
   var.dev_tags)
 }
+
+##########################################################################################
+###################EC2 RT Association #############
+resource "aws_route_table_association" "dev-ec2-sn-rt-pub-ass" {
+  count = length(var.public_subnet_cidrs)
+  subnet_id      = aws_subnet.dev_public_ec2_subnet-02.id
+  route_table_id = aws_route_table.dev-ec2-public-rt-01.id
+}
