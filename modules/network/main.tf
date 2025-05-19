@@ -201,25 +201,28 @@ resource "aws_route_table_association" "dev-ec2-sn-rt-pub-association" {
   route_table_id = aws_route_table.dev-ec2-public-rt-02.id
 }
 
-/*resource "aws_route_table_association" "dev-ec2-sn-rt-pvt-association" {
+resource "aws_route_table_association" "dev-ec2-sn-rt-pvt-association" {
   count = length(var.public_subnet_cidrs)
   subnet_id      = aws_subnet.dev_private_ec2_subnet-01[count.index].id
   route_table_id = aws_route_table.dev-ec2-private-rt-01.id
-  route_table_id = aws_route_table.dev-ec2-private-rt-01[count.index].id
+  
 }
 
 ##########################################################################################
-###################RMQ & AMQ RT Association #############
+###################RMQ & AMQ & DB RT Association #############
 resource "aws_route_table_association" "dev-ec2-sn-rmq-rt-pub-association" {
   count = length(var.public_subnet_cidrs)
   subnet_id      = aws_subnet.dev_private_rmq_subnet-04[count.index].id
   route_table_id = aws_route_table.dev-private-rt-rmq-04.id
-  route_table_id = aws_route_table.dev-private-rt-rmq-04[count.index].id
 }
 
 resource "aws_route_table_association" "dev-ec2-sn-amq-rt-pvt-association" {
   count = length(var.public_subnet_cidrs)
   subnet_id      = aws_subnet.dev_private_amq_subnet-03[count.index].id
-  route_table_id = aws_route_table.dev-private-rt-amq-03[count.index].id
   route_table_id = aws_route_table.dev-private-rt-amq-03.id
-}*/
+}
+resource "aws_route_table_association" "dev-db-sn-mongo-rt-pvt-association" {
+  count = length(var.public_subnet_cidrs)
+  subnet_id      = aws_subnet.dev_private_mongo_db_subnet_05[count.index].id
+  route_table_id = aws_route_table.dev-private-rt-mongo-db-05.id
+}
