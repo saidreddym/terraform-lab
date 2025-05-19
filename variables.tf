@@ -1,5 +1,5 @@
 variable "dev_cidr_block" {
-    default = "10.12.16.22/16"
+    default = "10.12.0.0/16"
 }
 
 
