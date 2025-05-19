@@ -45,7 +45,7 @@ resource "aws_subnet" "dev_public_ec2_subnet-02" {
 }
 
 #################################################
-###################RMQ & AMQ Subnets#############
+###################RMQ & AMQ & DB Subnets#############
 
 
 resource "aws_subnet" "dev_private_amq_subnet-03" {
@@ -72,6 +72,21 @@ resource "aws_subnet" "dev_private_rmq_subnet-04" {
   tags = merge(
     {
       "Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-rt${count.index + 1}"
+    },
+  var.dev_tags)
+}
+
+
+resource "aws_subnet" "dev_private_db_subnet_05" {
+  count = length(var.private_subnet_db_cidrs)
+  vpc_id     = aws_vpc.lab-vpc.id
+  cidr_block = element(var.private_subnet_db_cidrs, count.index)
+  availability_zone       = var.azs[count.index]
+  map_public_ip_on_launch = false
+
+  tags = merge(
+    {
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-db-rt${count.index + 1}"
     },
   var.dev_tags)
 }
@@ -121,8 +136,10 @@ resource "aws_route_table" "dev-ec2-public-rt-02" {
     },
   var.dev_tags)
 }
+
+
 ##########################################################################################
-###################MQ & AMQ - RT (Public & Private) #############
+###################MQ & AMQ & DB - RT (Public & Private) #############
 
 resource "aws_route_table" "dev-private-rt-amq-03" {
   vpc_id = aws_vpc.lab-vpc.id
@@ -152,6 +169,24 @@ resource "aws_route_table" "dev-private-rt-rmq-04" {
  tags = merge(
     {
       "Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-rt-04"
+      /*"Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-rt${count.index + 1}"*/
+    },
+  var.dev_tags)
+}
+
+
+resource "aws_route_table" "dev-private-rt-db-05" {
+  vpc_id = aws_vpc.lab-vpc.id
+  /*count = length(var.private_subnet_rmq_cidrs)*/
+
+  /*route {
+    cidr_block = element(var.private_subnet_rmq_cidrs, count.index)
+    gateway_id = aws_internet_gateway.dev-igw.id
+  }*/
+
+ tags = merge(
+    {
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-db-rt-05"
       /*"Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-rt${count.index + 1}"*/
     },
   var.dev_tags)

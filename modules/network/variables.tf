@@ -7,3 +7,4 @@ variable "public_subnet_cidrs" {}
 variable "private_subnet_rmq_cidrs" {}
 variable "private_subnet_amq_cidrs" {}
 variable "azs" {}
+variable "private_subnet_db_cidrs" {}
