@@ -16,6 +16,8 @@ resource "aws_subnet" "dev_private_ec2_subnet-01" {
   count = length(var.private_subnet_cidrs )
   vpc_id     = aws_vpc.lab-vpc.id
   cidr_block = element(var.private_subnet_cidrs, count.index)
+  availability_zone       = var.azs[count.index]
+  map_public_ip_on_launch = false
 
   tags = merge(
     {
@@ -28,6 +30,8 @@ resource "aws_subnet" "dev_public_ec2_subnet-02" {
   count = length(var.public_subnet_cidrs )
   vpc_id     = aws_vpc.lab-vpc.id
   cidr_block = element(var.public_subnet_cidrs, count.index)
+  availability_zone       = var.azs[count.index]
+  map_public_ip_on_launch = true
 
   tags = merge(
     {
