@@ -2,7 +2,6 @@ variable "dev_cidr_block" {
     default = "10.12.0.0/16"
 }
 
-
 #Approved-Tags
 variable "dev_tags" {
   type = map(any)
@@ -14,4 +13,10 @@ variable "dev_tags" {
     "Customer Type" = "PAAS"
     "Ticket"        = "08765"
   }
+}
+
+variable "dev_vpc_name" {
+    type = string
+    default = "dev-vpc-lab-01"
+  
 }

@@ -3,4 +3,9 @@ resource "aws_vpc" "lab-vpc" {
   tags = var.dev_tags
   instance_tenancy = "default"
   
+  tags = merge(
+    {
+      "Name" = var.dev_vpc_name
+    },
+  var.dr-tags)
 }
