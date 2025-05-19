@@ -92,7 +92,7 @@ resource "aws_route_table" "dev-ec2-public-rt-01" {
     },
   var.dev_tags)
 }
-#####################################################################################
+/*#####################################################################################
 resource "aws_route_table" "dev-ec2-private-rt-02" {
   count = length(var.private_subnet_cidrs )
   vpc_id = aws_vpc.lab-vpc.id
@@ -144,4 +144,4 @@ resource "aws_route_table" "dev-private-rt-amq-04" {
       "Name" = "${var.dev_vpc_name}-${var.env}-private-amq-rt${count.index + 1}"
     },
   var.dev_tags)
-}
+}*/
