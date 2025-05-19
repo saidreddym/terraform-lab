@@ -3,7 +3,12 @@ resource "aws_vpc" "default" {
   instance_tenancy = "default"
   enable_dns_hostnames = "true"
 
- tags = local.common_tags
+ tags = merge(
+    local.common_tags,
+    {
+      Name = "${var.vpc_name}-paas-sbg-vpc"
+    }
+     )
 }
 
 resource "aws_internet_gateway" "default" {
