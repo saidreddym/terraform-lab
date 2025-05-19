@@ -9,3 +9,12 @@ output "vpc_name" {
 output "environment" {
     value = var.environment
 }
+output "public_subnet" {
+    value = aws_subnet.private-subnet.id
+  
+}
+
+output "private_subnet" {
+    value = aws_subnet.private-subnet.id
+  
+}

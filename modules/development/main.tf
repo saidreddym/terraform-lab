@@ -9,18 +9,27 @@ module "dev_vpc_1" {
     costcenter = "costcenter"
     TeamDL = "TeamDL"
     owner = "Owner"
-    
+        
 }
 
-   module "security_group" {
+module "security_group" {
     depends_on = [ module.dev_vpc_1 ]
-  source         = "../modules/sg"
-  vpc_name       = module.dev_vpc_1.vpc_name
-  vpc_id         = module.dev_vpc_1.vpc_id
-  ingress_value  = ["80", "8080", "443", "8443", "22", "3306", "1900"]
-  environment    = module.dev_vpc_1.environment
-   costcenter = "costcenter"
+    source         = "../modules/sg"
+    vpc_name       = module.dev_vpc_1.vpc_name
+    vpc_id         = module.dev_vpc_1.vpc_id
+    ingress_value  = ["80", "8080", "443", "8443", "22", "3306", "1900"]
+    environment    = module.dev_vpc_1.environment
+    costcenter = "costcenter"
     TeamDL = "TeamDL"
     owner = "Owner"
-    
-       }
+}
+
+module "compute" {
+  source = "../modules/compute"
+ami_id = "ami-0953476d60561c955"
+instance_type = "t2.micro"
+subnet_id = module.dev_vpc_1.private_subnet.id
+vpc_security_group_ids = module.security_group.vpc_id
+key_name = module.aws_key_pair.key_name
+
+}
