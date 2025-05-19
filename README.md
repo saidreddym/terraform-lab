@@ -1,2 +1,0 @@
-# terraform-lab
-terraform-lab
