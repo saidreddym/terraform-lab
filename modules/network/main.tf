@@ -195,14 +195,13 @@ resource "aws_route_table" "dev-private-rt-mongo-db-05" {
 
 ##########################################################################################
 ###################EC2 RT Association #############
-/*resource "aws_route_table_association" "dev-ec2-sn-rt-pub-association" {
+resource "aws_route_table_association" "dev-ec2-sn-rt-pub-association" {
   count = length(var.public_subnet_cidrs)
   subnet_id      = aws_subnet.dev_public_ec2_subnet-02[count.index].id
   route_table_id = aws_route_table.dev-ec2-public-rt-02.id
-  route_table_id = aws_route_table.dev-ec2-public-rt-02[count.index].id
 }
 
-resource "aws_route_table_association" "dev-ec2-sn-rt-pvt-association" {
+/*resource "aws_route_table_association" "dev-ec2-sn-rt-pvt-association" {
   count = length(var.public_subnet_cidrs)
   subnet_id      = aws_subnet.dev_private_ec2_subnet-01[count.index].id
   route_table_id = aws_route_table.dev-ec2-private-rt-01.id
