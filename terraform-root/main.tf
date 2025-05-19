@@ -1,6 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
 
 # 1. VPC & Subnet
 module "network" {
