@@ -3,18 +3,15 @@ resource "aws_vpc" "default" {
   instance_tenancy = "default"
   enable_dns_hostnames = "true"
 
-tags = {
-    Name = var.vpc_name
-    Owner = var.owner
-    costcenter = var.costcenter
-    TeamDL =  var.TeamDL
-    environment = var.environment
-  }
+ tags = local.common_tags
 }
 
 resource "aws_internet_gateway" "default" {
     vpc_id = aws_vpc.default.id
-    tags = {
-    Name = "${var.vpc_name}-IGW"
-    }  
+     tags = merge(
+    local.common_tags,
+    {
+      Name = "${var.vpc_name}-IGW"
+    }
+     )
 }
