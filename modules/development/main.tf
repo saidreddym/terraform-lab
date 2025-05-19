@@ -9,7 +9,7 @@ module "dev_vpc_1" {
     costcenter = "costcenter"
     TeamDL = "TeamDL"
     owner = "Owner"
-
+    
 }
 
    module "security_group" {
@@ -22,4 +22,4 @@ module "dev_vpc_1" {
    costcenter = "costcenter"
     TeamDL = "TeamDL"
     owner = "Owner"
-   }
+       }
