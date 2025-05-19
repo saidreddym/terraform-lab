@@ -129,7 +129,7 @@ resource "aws_route_table" "dev-private-rt-rmq-03" {
   var.dev_tags)
 }
 
-resource "aws_route_table" "dev-private-rt-amq-04" {
+/*resource "aws_route_table" "dev-private-rt-amq-04" {
   count = length(var.private_subnet_amq_cidrs )
   vpc_id = aws_vpc.lab-vpc.id
  
