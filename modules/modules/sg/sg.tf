@@ -1,5 +1,5 @@
-resource "aws_security_group" "allow_all" {
-  name        = test
+resource "aws_security_group" "allow-all" {
+  name        = "Inbound-security_group"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = var.vpc_id
 
