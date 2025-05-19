@@ -13,7 +13,7 @@ module "prod_vpc_1" {
 }
 
 module "security_group" {
-    depends_on = [ module.dev_vpc_1 ]
+    depends_on = [ module.prod_vpc_1 ]
   source         = "../modules/sg"
   vpc_name       = module.prod_vpc_1.vpc_name
   vpc_id         = module.prod_vpc_1.vpc_id
