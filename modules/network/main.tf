@@ -77,7 +77,7 @@ resource "aws_subnet" "dev_private_rmq_subnet-04" {
 }
 
 
-resource "aws_subnet" "dev_private_db_subnet_05" {
+resource "aws_subnet" "dev_private_mongo_db_subnet_05" {
   count = length(var.private_subnet_db_cidrs)
   vpc_id     = aws_vpc.lab-vpc.id
   cidr_block = element(var.private_subnet_db_cidrs, count.index)
@@ -86,7 +86,7 @@ resource "aws_subnet" "dev_private_db_subnet_05" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-private-db-rt${count.index + 1}"
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-mongo-db-rt${count.index + 1}"
     },
   var.dev_tags)
 }
@@ -175,7 +175,7 @@ resource "aws_route_table" "dev-private-rt-rmq-04" {
 }
 
 
-resource "aws_route_table" "dev-private-rt-db-05" {
+resource "aws_route_table" "dev-private-rt-mongo-db-05" {
   vpc_id = aws_vpc.lab-vpc.id
   /*count = length(var.private_subnet_rmq_cidrs)*/
 
@@ -186,7 +186,7 @@ resource "aws_route_table" "dev-private-rt-db-05" {
 
  tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-private-db-rt-05"
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-mongo-db-rt-05"
       /*"Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-rt${count.index + 1}"*/
     },
   var.dev_tags)
