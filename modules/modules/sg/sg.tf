@@ -17,11 +17,11 @@ resource "aws_security_group" "allow_all" {
   
 
     tags = {
-    Name = "${var.vpc_name}"
-    Owner = "local.Owner"
-    costcenter = "local.costcenter"
-    TeamDL =  "local.TeamDL"
-    environment = "${var.environment}"
+    Name        = var.vpc_name
+    Owner       = local.Owner
+    costcenter  = local.costcenter
+    TeamDL      = local.TeamDL
+    environment = var.environment
   }
 }
 
