@@ -48,6 +48,8 @@ resource "aws_subnet" "dev_private_amq_subnet-03" {
   count = length(var.private_subnet_amq_cidrs)
   vpc_id     = aws_vpc.lab-vpc.id
   cidr_block = element(var.private_subnet_amq_cidrs, count.index)
+  availability_zone       = var.azs[count.index]
+  map_public_ip_on_launch = false
 
   tags = merge(
     {
@@ -60,6 +62,8 @@ resource "aws_subnet" "dev_private_rmq_subnet-04" {
   count = length(var.private_subnet_rmq_cidrs)
   vpc_id     = aws_vpc.lab-vpc.id
   cidr_block = element(var.private_subnet_rmq_cidrs, count.index)
+  availability_zone       = var.azs[count.index]
+  map_public_ip_on_launch = false
 
   tags = merge(
     {
