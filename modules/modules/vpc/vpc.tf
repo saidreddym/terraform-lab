@@ -6,9 +6,9 @@ resource "aws_vpc" "default" {
 
   tags = {
     Name = "${var.vpc_name}"
-    Owner = "local.Owner"
-    costcenter = "local.costcenter"
-    TeamDL =  "local.TeamDL"
+    Owner = var.owner
+    costcenter = var.costcenter
+    TeamDL =  var.TeamDL
     environment = "${var.environment}"
   }
 }
