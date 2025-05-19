@@ -7,13 +7,12 @@ resource "aws_route_table" "public-route-table" {
   }
 
  
-  tags = {
-    Name = "${var.vpc_name}-private-RT"
-    Owner = "local.Owner"
-    costcenter = "local.costcenter"
-    TeamDL =  "local.TeamDL"
-    environment = "${var.environment}"
-  }
+  tags = merge(
+    local.common_tags,
+    {
+      Name = "${var.vpc_name}-PUBLIC-RT"
+    }
+     )
 }
 
 resource "aws_route_table" "private-route-table" {
@@ -25,13 +24,12 @@ resource "aws_route_table" "private-route-table" {
   }
 
  
-  tags = {
-    Name = "${var.vpc_name}-private-RT"
-    Owner = "local.Owner"
-    costcenter = "local.costcenter"
-    TeamDL =  "local.TeamDL"
-    environment = "${var.environment}"
-  }
+  tags = merge(
+    local.common_tags,
+    {
+      Name = "${var.vpc_name}-private-RT"
+    }
+     )
 }
 
 resource "aws_route_table_association" "public-subnets" {
