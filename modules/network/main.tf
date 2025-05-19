@@ -77,7 +77,7 @@ resource "aws_internet_gateway" "dev-igw" {
 
 ############################################################
 ###################EC2 - RT (Public & Private) #############
-resource "aws_route_table" "dev-ec2-public-rt-01" {
+resource "aws_route_table" "dev-ec2-public-rt-02" {
   vpc_id = aws_vpc.lab-vpc.id
   count = length(var.public_subnet_cidrs)
 
@@ -93,7 +93,7 @@ resource "aws_route_table" "dev-ec2-public-rt-01" {
   var.dev_tags)
 }
 #####################################################################################
-resource "aws_route_table" "dev-ec2-private-rt-02" {
+resource "aws_route_table" "dev-ec2-private-rt-01" {
   count = length(var.private_subnet_cidrs )
   vpc_id = aws_vpc.lab-vpc.id
  
@@ -149,7 +149,7 @@ resource "aws_route_table" "dev-private-rt-amq-04" {
 ##########################################################################################
 ###################EC2 RT Association #############
 resource "aws_route_table_association" "dev-ec2-sn-rt-pub-ass" {
-  count = length(var.public_subnet_cidrs)
-  subnet_id      = aws_subnet.dev_public_ec2_subnet[count.index].id
-  route_table_id = aws_route_table.dev-ec2-public-rt[count.index].id
+  /*count = length(var.public_subnet_cidrs)*/
+  subnet_id      = aws_subnet.dev_public_ec2_subnet-02.id
+  route_table_id = aws_route_table.dev-ec2-public-rt-02.id
 }
