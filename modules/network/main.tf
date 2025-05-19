@@ -19,7 +19,7 @@ resource "aws_subnet" "dev_private_ec2_subnet-01" {
   availability_zone       = var.azs[count.index]
   map_public_ip_on_launch = false
   lifecycle {
-    prevent_destroy = true
+    create_before_destroy = true
   }
 
 
