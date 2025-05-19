@@ -230,7 +230,7 @@ resource "aws_route_table_association" "dev-db-sn-mongo-rt-pvt-association" {
 ##########################################################################################
 ###################EC2 PVT RT- NAT GW #############
 resource "aws_eip" "dev_ngw_eip_for_ec2_mq_db" {
-  domain = true
+  domain = "vpc"
   lifecycle {
   prevent_destroy = true
 }
