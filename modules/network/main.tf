@@ -243,12 +243,13 @@ tags = merge(
 }
 
 resource "aws_nat_gateway" "dev_private_ec2_nat_gw_att" {
+  count = length(var.public_subnet_cidrs )
   allocation_id = aws_eip.dev_ngw_eip_for_ec2_mq_db.id
-  subnet_id     = aws_subnet.dev_public_ec2_subnet_02.id
+  subnet_id     = aws_subnet.dev_public_ec2_subnet_02[count.index + 2].id
 
   tags = merge(
     {
-      Name = "${var.dev_vpc_name}-${var.env}-ngw-for-ec2-mq-db"
+      Name = "${var.dev_vpc_name}-${var.env}-ngw-for-ec2-mq-db-01"
     },
     var.dev_tags
   )
