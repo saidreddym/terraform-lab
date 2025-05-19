@@ -129,19 +129,19 @@ resource "aws_route_table" "dev-private-rt-rmq-03" {
   var.dev_tags)
 }
 
-/*resource "aws_route_table" "dev-private-rt-amq-04" {
+resource "aws_route_table" "dev-private-rt-amq-04" {
   count = length(var.private_subnet_amq_cidrs )
   vpc_id = aws_vpc.lab-vpc.id
  
 
-  route {
+  /*route {
       cidr_block = element(var.private_subnet_amq_cidrs, count.index)
     gateway_id = aws_internet_gateway.dev-igw.id
-  }
+  }*/
 
  tags = merge(
     {
       "Name" = "${var.dev_vpc_name}-${var.env}-private-amq-rt${count.index + 1}"
     },
   var.dev_tags)
-}*/
+}
