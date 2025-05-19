@@ -19,5 +19,5 @@ variable "dev_vpc_name" {
      default = "dev-vpc"
 }
 variable "env" {
-    default = dev
+    default = "dev"
 }
