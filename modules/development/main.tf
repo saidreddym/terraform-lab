@@ -28,7 +28,7 @@ module "compute" {
   source = "../modules/compute"
 ami_id = "ami-0953476d60561c955"
 instance_type = "t2.micro"
-subnet_id = module.dev_vpc_1.private_subnet.id
+subnet_id = module.dev_vpc_1.private_subnet
 vpc_security_group_ids = module.security_group.vpc_id
 key_name = module.aws_key_pair.key_name
 
