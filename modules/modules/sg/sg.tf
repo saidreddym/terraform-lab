@@ -15,11 +15,11 @@ resource "aws_security_group" "allow-all" {
 }
  
     tags = {
-    Name = aws_security_group.allow-all.name
-    /*Owner = "${var.owner}"
-    costcenter = "${var.costcenter}"
-    TeamDL =  "${var.TeamDL}"
-    environment = "${var.environment}"*/
+    Name = "${var.vpc_name}"
+    Owner = var.owner
+    costcenter = var.costcenter
+    TeamDL =  var.TeamDL
+    environment = "${var.environment}"
   }
 }
 
