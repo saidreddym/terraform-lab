@@ -15,7 +15,7 @@ resource "aws_security_group" "allow-all" {
 }
  
     tags = {
-    Name = "test"
+    Name = aws_security_group.allow-all.name
     /*Owner = "${var.owner}"
     costcenter = "${var.costcenter}"
     TeamDL =  "${var.TeamDL}"
