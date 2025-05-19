@@ -11,11 +11,11 @@ terraform {
 provider "aws" {
   region = "us-east-1"
   alias = "dev"
-  profile = "development"
+  
 }
 
 provider "aws" {
   alias = "prod"
   region = "us-east-2"
-  profile = "production"
+  
 }
