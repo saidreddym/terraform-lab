@@ -14,6 +14,11 @@ resource "aws_security_group" "allow-all" {
     }
 }
  
-    tags = local.common_tags
+     tags = merge(
+    local.common_tags,
+    {
+      Name = "${var.vpc_name}-pass-test-inbound-acc-sg"
+    }
+     )
 }
 
