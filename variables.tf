@@ -1,4 +1,6 @@
-variable "dev_cidr_block" {}
+variable "dev_cidr_block" {
+    default = "10.12.16.22/16"
+}
 
 
 #Approved-Tags
