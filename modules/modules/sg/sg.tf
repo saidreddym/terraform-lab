@@ -16,12 +16,12 @@ resource "aws_security_group" "allow_all" {
  
   
 
-    tags = {
+    /*tags = {
     Name        = var.vpc_name
-    /*Owner       = local.Owner
+    Owner       = local.Owner
     costcenter  = local.costcenter
-    TeamDL      = local.TeamDL*/
+    TeamDL      = local.TeamDL
     environment = var.environment
-  }
+  }*/
 }
 
