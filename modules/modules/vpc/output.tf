@@ -3,9 +3,9 @@ output "vpc_id" {
 }
 
 output "vpc_name" {
-    value = aws_vpc.default
+    value = var.vpc_name
 }
 
 output "environment" {
-    value = aws_vpc.default
+    value = var.environment
 }
