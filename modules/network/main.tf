@@ -43,7 +43,7 @@ resource "aws_subnet" "dev_public_ec2_subnet" {
 resource "aws_subnet" "dev_private_amq_subnet" {
   count = length(var.private_subnet_amq_cidrs)
   vpc_id     = aws_vpc.lab-vpc.id
-  cidr_block = element(var.private_subnet_cidrs, count.index)
+  cidr_block = element(var.private_subnet_amq_cidrs, count.index)
 
   tags = merge(
     {
@@ -55,7 +55,7 @@ resource "aws_subnet" "dev_private_amq_subnet" {
 resource "aws_subnet" "dev_private_rmq_subnet" {
   count = length(var.private_subnet_rmq_cidrs)
   vpc_id     = aws_vpc.lab-vpc.id
-  cidr_block = element(var.private_subnet_cidrs, count.index)
+  cidr_block = element(var.private_subnet_rmq_cidrs, count.index)
 
   tags = merge(
     {
