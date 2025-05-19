@@ -19,7 +19,7 @@ resource "aws_subnet" "dev_private_ec2_subnet-01" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-private-rt${count.index + 1}"
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-ec2-rt${count.index + 1}"
     },
   var.dev_tags)
 }
@@ -31,7 +31,7 @@ resource "aws_subnet" "dev_public_ec2_subnet-02" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-public-rt${count.index + 1}"
+      "Name" = "${var.dev_vpc_name}-${var.env}-public-ec2-rt${count.index + 1}"
     },
   var.dev_tags)
 }
