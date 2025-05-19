@@ -238,7 +238,7 @@ resource "aws_eip" "dev_ngw_eip_for_ec2_mq_db" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}_eip_ec2_mq_db"
+      "Name" = "${var.dev_vpc_name}-${var.env}-eip-for-ec2-mq-db"
     },
   var.dev_tags)
 }
