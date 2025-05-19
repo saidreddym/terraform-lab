@@ -12,9 +12,9 @@ module "network" {
   env                      = var.env
 }
 module "s3" {
-    source = "./modules/s3"
-    env                      = var.env
-    dev_tags                 = var.dev_tags
-    dev_vpc_name             = var.dev_vpc_name
+  source       = "./modules/s3"
+  env          = var.env
+  dev_tags     = var.dev_tags
+  dev_vpc_name = var.dev_vpc_name
 }
 
