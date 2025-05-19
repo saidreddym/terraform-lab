@@ -11,9 +11,9 @@ module "dev_vpc_1" {
 
     module "security_group" {
         source = "../modules/sg"
-        vpc_name = module.dev_vpc_1.vpc_name
-    vpc_id = module.dev_vpc_1.vpc_id
+        vpc_name = module.dev-vpc.vpc_name
+    vpc_id = module.dev-vpc.vpc_id
     ingress_value = ["80", "8080", "443", "8443", "22", "3306", "1900"]
-    environment = module.dev_vpc_1.environment
+    environment = module.dev-vpc.environment
     
     }
