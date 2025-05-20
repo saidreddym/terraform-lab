@@ -61,7 +61,7 @@ variable "public_ec2_ingress_rules" {
       to_port   = 8080
       protocol  = "tcp"
       cidr_ipv4 = "10.0.2.0/24"
-    }
+    },
     {
       from_port = 8085
       to_port   = 8085
