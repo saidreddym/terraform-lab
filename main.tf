@@ -30,7 +30,7 @@ module "ec2_mq_compute" {
   ec2_subnet_id             = module.network.dev_public_ec2_subnet-02_output_01.id
   ec2_public_security_group = [module.network.dev_ec2_pub_sg_01]
   private_ec2_count =  var.private_ec2_count
-  ec2_private_security_group = module.network.dev_private_ec2_subnet-01.id
+  ec2_private_security_group = [module.network.dev_private_ec2_subnet-02]
 
 
 
