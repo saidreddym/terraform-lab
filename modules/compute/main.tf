@@ -22,7 +22,7 @@ resource "local_file" "key_pair_local" {
 }
 
 resource "aws_instance" "ec2_public" {
-  count 							        = var.mwvm_count
+  count 							        = var.public_ec2_count
   ami           = var.ec2_ami
   instance_type = var.ec2_instance_type
   associate_public_ip_address = "true"
