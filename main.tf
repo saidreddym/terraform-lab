@@ -10,6 +10,8 @@ module "network" {
   private_subnet_db_cidrs  = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
   azs                      = var.azs
   env                      = var.env
+  public_ec2_ingress_rules = var.public_ec2_ingress_rules
+  
 
   
   }
@@ -28,6 +30,8 @@ module "ec2_mq_compute" {
   ec2_ami           = var.ec2_ami
   ec2_subnet_id     = module.network.dev_public_ec2_subnet-02_output-01
   public_ec2_count = var.public_ec2_count
+  ec2_public_subnet = 
+
 
   
 
