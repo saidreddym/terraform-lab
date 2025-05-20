@@ -55,7 +55,7 @@ key_name               = aws_key_pair.dev_ec2_key.key_name
 
   tags = merge(
     {
-      Name = "${var.dev_vpc_name}-${var.env}-ec2-public-jump${count.index + 1}"
+      Name = "${var.dev_vpc_name}-${var.env}-ec2-public-jump-${count.index + 1}"
     },
     var.dev_tags
   )
