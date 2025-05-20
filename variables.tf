@@ -77,10 +77,10 @@ variable "private_ec2_ingress_rules" {
 }
 variable "volume_data_size" {
   type = number
-  default = 15
+  default = 25
 }
 variable "volume_root_size" {
   type = number
-  default = 15
+  default = 25
 }
 
