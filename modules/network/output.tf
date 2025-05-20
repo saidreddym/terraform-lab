@@ -18,7 +18,7 @@ output "dev_public_ec2_subnet-02_output-03" {
 }
 
 output "dev_ec2_pub_sg_01" {
-    value = aws_security_group.ec2_public_sg_01.name
+    value = aws_security_group.ec2_public_sg_01.id
   
 }
 
