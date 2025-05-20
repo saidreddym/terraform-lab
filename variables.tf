@@ -25,3 +25,9 @@ variable "azs" {
   default = ["us-east-1a", "us-east-1b", "us-east-1c"]
 
 }
+variable "ec2_ami" {
+  default = "ami-0953476d60561c955"
+}
+variable "ec2_instance_type" {
+  default = "t2.micro"
+}

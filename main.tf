@@ -22,6 +22,10 @@ module "s3" {
     env                      = var.env
      dev_tags                 = var.dev_tags
   dev_vpc_name             = var.dev_vpc_name
+  ec2_instance_type = var.ec2_instance_type
+  ec2_ami = var.ec2_ami
+
+
     
   }
   

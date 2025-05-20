@@ -20,3 +20,15 @@ resource "local_file" "key_pair_local" {
   filename = "${path.module}/key_pair_local"
   file_permission = "0600"
 }
+
+resource "aws_instance" "ec2_public" {
+  ami           = var.ec2_ami
+  instance_type = var.ec2_instance_type
+
+  tags = merge(
+    {
+      Name = "${var.dev_vpc_name}-${var.env}-ec2-public-jump"
+    },
+    var.dev_tags
+  )
+}
