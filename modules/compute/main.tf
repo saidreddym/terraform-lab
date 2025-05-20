@@ -27,8 +27,10 @@ resource "aws_instance" "ec2_public" {
   count 							        = var.public_ec2_count
   ami           = var.ec2_ami
   instance_type = var.ec2_instance_type
-  vpc_security_group_ids = [var.ec2_public_security_group]
+  vpc_security_group_ids = var.ec2_public_security_group
   associate_public_ip_address = "true"
+ subnet_id = var.ec2_subnet_id
+
   
   key_name               = aws_key_pair.dev_ec2_key.key_name
 
