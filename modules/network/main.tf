@@ -260,6 +260,7 @@ resource "aws_nat_gateway" "dev_private_ec2_nat_gw_att" {
 
 resource "aws_security_group" "ec2_public_sg_01" {
  description = "Allow TLS inbound traffic and all outbound traffic"
+ name        = "${var.dev_vpc_name}-${var.env}-sg-for-ec2-pub01"
   vpc_id      = aws_vpc.lab-vpc.id
   dynamic "ingress" {
     for_each = var.public_ec2_ingress_rules
@@ -273,7 +274,7 @@ resource "aws_security_group" "ec2_public_sg_01" {
 
    tags = merge(
     {
-      Name = "${var.dev_vpc_name}-${var.env}-sg-for-ec2-pub01"
+      Name = "${var.dev_vpc_name}-${var.env}-sg-pub"
     },
     var.dev_tags
   )

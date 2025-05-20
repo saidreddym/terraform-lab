@@ -6,6 +6,8 @@ variable "ec2_instance_type" {}
 variable "ec2_subnet_id" {}
 variable "public_ec2_count" {}
 variable "ec2_public_security_group" {
-     type = list(string)
+     /*type = list(string)*/
 }
+variable "private_ec2_count" {}
+variable "ec2_private_security_group" {}
 

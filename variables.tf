@@ -1,7 +1,6 @@
 variable "dev_cidr_block" {
   default = "10.0.0.0/16"
 }
-
 #Approved-Tags
 variable "dev_tags" {
   type = map(any)
@@ -14,7 +13,6 @@ variable "dev_tags" {
     "Ticket"        = "08765"
   }
 }
-
 variable "dev_vpc_name" {
   default = "dev-vpc"
 }
@@ -35,7 +33,10 @@ variable "public_ec2_count" {
   default = 1
 
 }
+variable "private_ec2_count" {
+  default = 5
 
+}
 variable "public_ec2_ingress_rules" {
   type = list(object({
     from_port = number
@@ -54,19 +55,25 @@ variable "public_ec2_ingress_rules" {
       from_port = 443
       to_port   = 443
       protocol  = "tcp"
-      cidr_ipv4 = "10.0.1.0/24"
-    },
-    {
-      from_port = 8080
-      to_port   = 8080
-      protocol  = "tcp"
-      cidr_ipv4 = "10.0.2.0/24"
-    },
-    {
-      from_port = 8085
-      to_port   = 8085
-      protocol  = "tcp"
       cidr_ipv4 = "10.0.3.0/24"
+    }
+  ]
+}
+
+
+variable "private_ec2_ingress_rules" {
+  type = list(object({
+    from_port = number
+    to_port   = number
+    protocol  = string
+    cidr_ipv4 = string
+  }))
+  default = [
+    {
+      from_port = 0
+      to_port   = 65535
+      protocol  = "tcp"
+      cidr_ipv4 = "10.0.0.0/16" # placeholder; override as needed
     }
   ]
 }
