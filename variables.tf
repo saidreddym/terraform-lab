@@ -60,7 +60,6 @@ variable "public_ec2_ingress_rules" {
   ]
 }
 
-
 variable "private_ec2_ingress_rules" {
   type = list(object({
     from_port = number

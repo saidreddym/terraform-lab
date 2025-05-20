@@ -21,6 +21,7 @@ resource "local_file" "key_pair_local" {
   file_permission = "0600"
 }
 resource "aws_instance" "ec2_public" {
+  depends_on = [ aws_key_pair.dev_ec2_key ]
   count 							        = var.public_ec2_count
   ami           = var.ec2_ami
   instance_type = var.ec2_instance_type
