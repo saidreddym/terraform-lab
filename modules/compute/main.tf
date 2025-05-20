@@ -24,6 +24,10 @@ resource "local_file" "key_pair_local" {
 resource "aws_instance" "ec2_public" {
   ami           = var.ec2_ami
   instance_type = var.ec2_instance_type
+  subnet_id     = var.ec2_subnet_id
+  associate_public_ip_address = "true"
+  availability_zone      = var.azs
+  key_name               = aws_key_pair.dev_ec2_key.key_name
 
   tags = merge(
     {

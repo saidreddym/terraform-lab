@@ -16,19 +16,19 @@ module "s3" {
   env          = var.env
   dev_tags     = var.dev_tags
   dev_vpc_name = var.dev_vpc_name
-  }
-  module "ec2_mq_compute" {
-    source = "./modules/compute"
-    env                      = var.env
-     dev_tags                 = var.dev_tags
-  dev_vpc_name             = var.dev_vpc_name
+}
+module "ec2_mq_compute" {
+  source            = "./modules/compute"
+  env               = var.env
+  dev_tags          = var.dev_tags
+  dev_vpc_name      = var.dev_vpc_name
   ec2_instance_type = var.ec2_instance_type
-  ec2_ami = var.ec2_ami
+  ec2_ami           = var.ec2_ami
+  ec2_subnet_id     = module.network.public_subnet_cidrs
+  azs               = var.azs
 
+}
 
-    
-  }
-  
 
 
 
