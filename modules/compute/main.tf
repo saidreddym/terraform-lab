@@ -46,6 +46,14 @@ resource "aws_instance" "ec2_public" {
     delete_on_termination = true
     encrypted = true
   }
+  user_data = <<-EOF
+              #!/bin/bash
+              sudo apt-get update -y
+              sudo apt-get install -y nginx
+              systemctl enable nginx
+              systemctl start nginx
+              echo "<h1>Hello from Terraform EC2</h1>" > /var/www/html/index.html
+              EOF
 
   
   key_name               = aws_key_pair.dev_ec2_key.key_name
