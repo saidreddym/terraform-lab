@@ -60,8 +60,6 @@ key_name               = aws_key_pair.dev_ec2_key.key_name
     var.dev_tags
   )
 }
-
-
 resource "aws_instance" "ec2_private" {
   count 							        = var.private_ec2_count
   ami           = var.ec2_ami
@@ -69,7 +67,7 @@ resource "aws_instance" "ec2_private" {
   vpc_security_group_ids = var.ec2_private_security_group
   associate_public_ip_address = "false"
  subnet_id = var.ec2_private_subnet_id
- # Root volume (usually /dev/xvda)
+
   root_block_device {
     volume_size = var.volume_root_size               # Size in GB
     volume_type = "gp2"            # General Purpose SSD
@@ -77,8 +75,7 @@ resource "aws_instance" "ec2_private" {
     encrypted = true
   }
 
-  # Additional EBS volume (e.g. /dev/sdf)
-  ebs_block_device {
+ebs_block_device {
     device_name = "/dev/sdf"
     volume_size = var.volume_data_size
     volume_type = "gp2"
