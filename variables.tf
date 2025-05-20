@@ -34,7 +34,7 @@ variable "public_ec2_count" {
 
 }
 variable "private_ec2_count" {
-  default = 5
+  default = 1
 
 }
 variable "public_ec2_ingress_rules" {

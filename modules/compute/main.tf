@@ -86,7 +86,7 @@ resource "aws_instance" "ec2_private" {
   instance_type = var.ec2_instance_type
   vpc_security_group_ids = var.ec2_private_security_group
   associate_public_ip_address = "false"
- subnet_id = var.ec2_subnet_id
+ subnet_id = var.ec2_private_subnet_id
  # Root volume (usually /dev/xvda)
   root_block_device {
     volume_size = 8               # Size in GB
@@ -131,7 +131,7 @@ key_name               = aws_key_pair.dev_ec2_key.key_name
 
   tags = merge(
     {
-      Name = "${var.dev_vpc_name}-${var.env}-ec2-private-${count.index + 1}"
+      Name = "${var.dev_vpc_name}-${var.env}-ec2-pvt-${count.index + 1}"
     },
     var.dev_tags
   )
