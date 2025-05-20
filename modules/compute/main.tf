@@ -22,7 +22,7 @@ resource "local_file" "key_pair_local" {
 }
 
 resource "aws_instance" "ec2_public" {
-  count 							        = var.public_ec2_count
+  count 							        = length(var.public_ec2_count)
   ami           = var.ec2_ami
   instance_type = var.ec2_instance_type
   associate_public_ip_address = "true"
@@ -30,7 +30,7 @@ resource "aws_instance" "ec2_public" {
 
   tags = merge(
     {
-      Name = "${var.dev_vpc_name}-${var.env}-ec2-public-jump"
+      Name = "${var.dev_vpc_name}-${var.env}-ec2-public-jump${count.index + 1}"
     },
     var.dev_tags
   )
