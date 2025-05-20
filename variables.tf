@@ -34,7 +34,7 @@ variable "public_ec2_count" {
 
 }
 variable "private_ec2_count" {
-  default = 1
+  default = 3
 
 }
 variable "public_ec2_ingress_rules" {
@@ -77,10 +77,10 @@ variable "private_ec2_ingress_rules" {
 }
 variable "volume_data_size" {
   type = number
-  default = 18
+  default = 5
 }
 variable "volume_root_size" {
   type = number
-  default = 18
+  default = 5
 }
 
