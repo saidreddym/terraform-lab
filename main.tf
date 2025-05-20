@@ -29,6 +29,7 @@ module "ec2_mq_compute" {
   ec2_subnet_id     = module.network.dev_public_ec2_subnet-02_output
   public_ec2_count = var.public_ec2_count
   
+  
 
 
 
