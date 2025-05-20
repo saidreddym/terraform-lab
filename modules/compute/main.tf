@@ -46,6 +46,22 @@ resource "aws_instance" "ec2_public" {
     delete_on_termination = true
     encrypted = true
   }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum update -y",
+      "sudo yum install -y httpd",
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd",
+      "echo '<h1>Hello from Terraform</h1>' | sudo tee /var/www/html/index.html"
+    ]
+
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      private_key = "${path.module}/key_pair_local"  # Use your private key path
+      host        = self.public_ip
+    }
+  }
   user_data = <<-EOF
               #!/bin/bash
               sudo apt-get update -y
