@@ -32,7 +32,7 @@ resource "aws_instance" "ec2_public" {
  subnet_id = var.ec2_subnet_id
  # Root volume (usually /dev/xvda)
   root_block_device {
-    volume_size = 20               # Size in GB
+    volume_size = 10               # Size in GB
     volume_type = "gp2"            # General Purpose SSD
     delete_on_termination = true   # Deletes volume when instance is terminated
     encrypted = true
