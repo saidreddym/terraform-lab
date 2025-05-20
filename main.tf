@@ -27,6 +27,8 @@ module "ec2_mq_compute" {
   ec2_instance_type = var.ec2_instance_type
   ec2_ami           = var.ec2_ami
   ec2_subnet_id     = module.network.dev_public_ec2_subnet-02_output
+  public_ec2_count = var.public_ec2_count
+
 
 
 
