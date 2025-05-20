@@ -75,12 +75,12 @@ variable "private_ec2_ingress_rules" {
     }
   ]
 }
-variable "data_disk_size" {
+variable "volume_data_size" {
   type = number
-  default = 10
+  default = 5
 }
-variable "root_disk_size" {
+variable "volume_root_size" {
   type = number
-  default = 15
+  default = 8
 }
 

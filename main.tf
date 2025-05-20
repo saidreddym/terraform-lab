@@ -33,15 +33,9 @@ module "ec2_mq_compute" {
   private_ec2_count          = var.private_ec2_count
   ec2_private_security_group = [module.network.ec2_private_sg_01]
   ec2_private_subnet_id      = module.network.dev_private_ec2_subnet-01.id
-  volume_data_size = var.data_disk_size
-  volume_root_size = var.root_disk_size
-
-
-
-
-
-
-}
+  volume_data_size = var.volume_data_size
+  volume_root_size = var.volume_root_size
+  }
 
 
 
