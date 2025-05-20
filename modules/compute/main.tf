@@ -21,10 +21,14 @@ resource "local_file" "key_pair_local" {
   file_permission = "0600"
 }
 
+
+
 resource "aws_instance" "ec2_public" {
   count 							        = var.public_ec2_count
   ami           = var.ec2_ami
   instance_type = var.ec2_instance_type
+  subnet_id              = var.ec2_public_subnet
+  vpc_security_group_ids = var.ec2_public_security_group
   associate_public_ip_address = "true"
   key_name               = aws_key_pair.dev_ec2_key.key_name
 

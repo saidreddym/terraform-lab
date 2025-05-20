@@ -255,9 +255,26 @@ resource "aws_nat_gateway" "dev_private_ec2_nat_gw_att" {
   )
 }
 
+##########################################################################################
+####################SG rule for Public EC2####################
 
+resource "aws_security_group" "ec2_public_sg_01" {
+ description = "Allow TLS inbound traffic and all outbound traffic"
+  vpc_id      = aws_vpc.lab-vpc.id
+  dynamic "ingress" {
+    for_each = var.public_ec2_ingress_rules
+    content {
+      from_port   = ingress.value.from_port
+      to_port     = ingress.value.to_port
+      protocol    = ingress.value.protocol
+      cidr_blocks = [ingress.value.cidr_ipv4]
+    }
+  }
 
-
-
-
-
+   tags = merge(
+    {
+      Name = "${var.dev_vpc_name}-${var.env}-sg-for-ec2-pub${count.index + 1}"
+    },
+    var.dev_tags
+  )
+}

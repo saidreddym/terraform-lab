@@ -35,3 +35,39 @@ variable "public_ec2_count" {
   default = 1
   
 }
+
+variable "public_ec2_ingress_rules" {
+  type = list(object({
+    from_port = number
+    to_port   = number
+    protocol  = string
+    cidr_ipv4 = string
+  }))
+  default = [
+    {
+      from_port = 22
+      to_port   = 22
+      protocol  = "tcp"
+      cidr_ipv4 = "0.0.0.0/0" # placeholder; override as needed
+    },
+    {
+      from_port = 443
+      to_port   = 443
+      protocol  = "tcp"
+      cidr_ipv4 = "10.0.1.0/24"
+    },
+    {
+      from_port = 8080
+      to_port   = 8080
+      protocol  = "tcp"
+      cidr_ipv4 = "10.0.2.0/24"
+    }
+    {
+      from_port = 8085
+      to_port   = 8085
+      protocol  = "tcp"
+      cidr_ipv4 = "10.0.3.0/24"
+    }
+  ]
+}
+
