@@ -6,4 +6,4 @@ variable "ec2_instance_type" {}
 variable "ec2_subnet_id" {}
 variable "public_ec2_count" {}
 variable "ec2_public_security_group" {}
-variable "vpc_id" {}
+
