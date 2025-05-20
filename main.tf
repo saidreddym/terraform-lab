@@ -11,7 +11,7 @@ module "network" {
   azs                      = var.azs
   env                      = var.env
   subnet_index = module.network.dev_public_ec2_subnet-02_output
-}
+  }
 module "s3" {
   source       = "./modules/s3"
   env          = var.env
