@@ -59,7 +59,6 @@ variable "public_ec2_ingress_rules" {
     }
   ]
 }
-
 variable "private_ec2_ingress_rules" {
   type = list(object({
     from_port = number
@@ -75,5 +74,13 @@ variable "private_ec2_ingress_rules" {
       cidr_ipv4 = "10.0.0.0/16" # placeholder; override as needed
     }
   ]
+}
+variable "data_disk_size" {
+  type = number
+  default = 10
+}
+variable "root_disk_size" {
+  type = number
+  default = 15
 }
 

@@ -28,18 +28,17 @@ resource "aws_instance" "ec2_public" {
   vpc_security_group_ids = var.ec2_public_security_group
   associate_public_ip_address = "true"
  subnet_id = var.ec2_subnet_id
- # Root volume (usually /dev/xvda)
+ 
   root_block_device {
-    volume_size = 10               # Size in GB
+    volume_size = var.volume_root_size               # Size in GB
     volume_type = "gp2"            # General Purpose SSD
     delete_on_termination = true   # Deletes volume when instance is terminated
     encrypted = true
   }
 
-  # Additional EBS volume (e.g. /dev/sdf)
-  ebs_block_device {
+ebs_block_device {
     device_name = "/dev/sdf"
-    volume_size = 5
+    volume_size = var.volume_data_size
     volume_type = "gp2"
     delete_on_termination = true
     encrypted = true
@@ -52,9 +51,7 @@ resource "aws_instance" "ec2_public" {
               systemctl start nginx
               echo "<h1>Hello from Terraform EC2</h1>" > /var/www/html/index.html
               EOF
-
-  
-  key_name               = aws_key_pair.dev_ec2_key.key_name
+key_name               = aws_key_pair.dev_ec2_key.key_name
 
   tags = merge(
     {
