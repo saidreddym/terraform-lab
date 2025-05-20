@@ -29,6 +29,7 @@ resource "aws_instance" "ec2_public" {
   instance_type = var.ec2_instance_type
   vpc_security_group_ids = [var.ec2_public_security_group]
   associate_public_ip_address = "true"
+  vpc_id = var.vpc_id
   key_name               = aws_key_pair.dev_ec2_key.key_name
 
   tags = merge(

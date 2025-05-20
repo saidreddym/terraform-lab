@@ -11,8 +11,7 @@ module "network" {
   azs                      = var.azs
   env                      = var.env
   public_ec2_ingress_rules = var.public_ec2_ingress_rules
-  
-  }
+}
 module "s3" {
   source       = "./modules/s3"
   env          = var.env
@@ -20,16 +19,16 @@ module "s3" {
   dev_vpc_name = var.dev_vpc_name
 }
 module "ec2_mq_compute" {
-  source            = "./modules/compute"
-  env               = var.env
-  dev_tags          = var.dev_tags
-  dev_vpc_name      = var.dev_vpc_name
-  ec2_instance_type = var.ec2_instance_type
-  ec2_ami           = var.ec2_ami
-  public_ec2_count = var.public_ec2_count
-  ec2_subnet_id     = module.network.dev_public_ec2_subnet-02_output-01
+  source                    = "./modules/compute"
+  env                       = var.env
+  dev_tags                  = var.dev_tags
+  dev_vpc_name              = var.dev_vpc_name
+  ec2_instance_type         = var.ec2_instance_type
+  ec2_ami                   = var.ec2_ami
+  public_ec2_count          = var.public_ec2_count
+  ec2_subnet_id             = module.network.dev_public_ec2_subnet-02_output-01
   ec2_public_security_group = module.network.dev_ec2_pub_sg_01
-  
+  vpc_id                    = module.network.vpc
 }
 
 

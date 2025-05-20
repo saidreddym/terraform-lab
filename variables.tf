@@ -33,7 +33,7 @@ variable "ec2_instance_type" {
 }
 variable "public_ec2_count" {
   default = 1
-  
+
 }
 
 variable "public_ec2_ingress_rules" {
