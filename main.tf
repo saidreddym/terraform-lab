@@ -10,6 +10,7 @@ module "network" {
   private_subnet_db_cidrs  = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
   azs                      = var.azs
   env                      = var.env
+
   
   }
 module "s3" {
@@ -26,7 +27,9 @@ module "ec2_mq_compute" {
   ec2_instance_type = var.ec2_instance_type
   ec2_ami           = var.ec2_ami
   ec2_subnet_id     = module.network.dev_public_ec2_subnet-02_output
-  azs               = var.azs
+
+
+
 
   
 

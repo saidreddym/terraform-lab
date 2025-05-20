@@ -4,4 +4,3 @@ variable "env" {}
 variable "ec2_ami" {}
 variable "ec2_instance_type" {}
 variable "ec2_subnet_id" {}
-variable "azs" {}
