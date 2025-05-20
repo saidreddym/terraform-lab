@@ -41,7 +41,7 @@ resource "aws_instance" "ec2_public" {
   # Additional EBS volume (e.g. /dev/sdf)
   ebs_block_device {
     device_name = "/dev/sdf"
-    volume_size = 5
+    volume_size = 15
     volume_type = "gp2"
     delete_on_termination = true
     encrypted = true
