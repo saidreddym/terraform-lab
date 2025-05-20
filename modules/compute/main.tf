@@ -71,7 +71,7 @@ resource "aws_instance" "ec2_private" {
  subnet_id = var.ec2_private_subnet_id
  # Root volume (usually /dev/xvda)
   root_block_device {
-    volume_size = 8               # Size in GB
+    volume_size = var.volume_root_size               # Size in GB
     volume_type = "gp2"            # General Purpose SSD
     delete_on_termination = true   # Deletes volume when instance is terminated
     encrypted = true
@@ -80,35 +80,12 @@ resource "aws_instance" "ec2_private" {
   # Additional EBS volume (e.g. /dev/sdf)
   ebs_block_device {
     device_name = "/dev/sdf"
-    volume_size = 9
+    volume_size = var.volume_data_size
     volume_type = "gp2"
     delete_on_termination = true
     encrypted = true
   }
-  /*provisioner "remote-exec" {
-    inline = [
-      "sudo yum update -y",
-      "sudo yum install -y httpd",
-      "sudo systemctl start httpd",
-      "sudo systemctl enable httpd",
-      "echo '<h1>Hello from Terraform</h1>' | sudo tee /var/www/html/index.html"
-    ]
-
-    connection {
-      type        = "ssh"
-      user        = "ec2-user"
-      private_key = "${path.module}/key_pair_local"  # Use your private key path
-      host        = self.public_ip
-    }
-  }
-  user_data = <<-EOF
-              #!/bin/bash
-              sudo apt-get update -y
-              sudo apt-get install -y nginx
-              systemctl enable nginx
-              systemctl start nginx
-              echo "<h1>Hello from Terraform EC2</h1>" > /var/www/html/index.html
-              EOF*/
+  
 key_name               = aws_key_pair.dev_ec2_key.key_name
 
   tags = merge(
