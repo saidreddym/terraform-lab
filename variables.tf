@@ -32,7 +32,7 @@ variable "ec2_instance_type" {
   default = "t2.micro"
 }
 variable "public_ec2_count" {
-  default = 1
+  default = 5
 
 }
 
