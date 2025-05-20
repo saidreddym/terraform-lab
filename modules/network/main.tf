@@ -273,7 +273,7 @@ resource "aws_security_group" "ec2_public_sg_01" {
 
    tags = merge(
     {
-      Name = "${var.dev_vpc_name}-${var.env}-sg-for-ec2-pub${count.index + 1}"
+      Name = "${var.dev_vpc_name}-${var.env}-sg-for-ec2-pub01"
     },
     var.dev_tags
   )
