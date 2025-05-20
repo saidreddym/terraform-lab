@@ -17,10 +17,14 @@ module "s3" {
   dev_tags     = var.dev_tags
   dev_vpc_name = var.dev_vpc_name
   }
-module "ec2_mq_compute" {
-    source = "../module/compute"
+  module "ec2_mq_compute" {
+    source = "./modules/compute"
+    env                      = var.env
+     dev_tags                 = var.dev_tags
+  dev_vpc_name             = var.dev_vpc_name
+    
+  }
   
-}
- 
+
 
 
