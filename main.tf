@@ -25,7 +25,7 @@ module "ec2_mq_compute" {
   dev_vpc_name      = var.dev_vpc_name
   ec2_instance_type = var.ec2_instance_type
   ec2_ami           = var.ec2_ami
-  ec2_subnet_id     = module.network.public_subnet_cidrs
+  ec2_subnet_id     = module.network.subnet_index
   azs               = var.azs
 
 
