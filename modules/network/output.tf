@@ -31,3 +31,7 @@ output "dev_private_ec2_subnet-03" {
     value = "${aws_subnet.dev_private_ec2_subnet-01[2]}"
   
 }
+output "ec2_private_sg_01" {
+    value = aws_security_group.ec2_private_sg_01.id
+  
+}

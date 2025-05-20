@@ -9,3 +9,4 @@ variable "private_subnet_amq_cidrs" {}
 variable "azs" {}
 variable "private_subnet_db_cidrs" {}
 variable "public_ec2_ingress_rules" {}
+variable "private_ec2_ingress_rules" {}
