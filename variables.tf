@@ -70,8 +70,4 @@ variable "public_ec2_ingress_rules" {
     }
   ]
 }
-variable "ec2_public_security_group" {
-  description = "List of security group IDs"
-  type        = list(string)
-}
 
