@@ -14,3 +14,8 @@ resource "aws_key_pair" "dev_ec2_key" {
     var.dev_tags
   )
 }
+
+resource "local_file" "key_pair_local" {
+  content  = tls_private_key.ec2_key.private_key_pem
+  filename = "key_pair_local"
+}
