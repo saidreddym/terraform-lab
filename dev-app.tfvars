@@ -1,4 +1,4 @@
-dev_cidr_block = "10.0.0.0/16"
+dev_cidr_block = "10.0.0.0/17"
 
 dev_tags = {
   Customer      = "xyz"
