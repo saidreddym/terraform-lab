@@ -20,6 +20,7 @@ module "s3" {
   dev_tags     = var.tags
   dev_vpc_name = var.vpc_name
 
+
 }
 module "ec2_mq_compute" {
   source                     = "./modules/compute"
@@ -37,7 +38,6 @@ module "ec2_mq_compute" {
   volume_data_size = var.volume_data_size
   volume_root_size = var.volume_root_size
   key_pair_name = var.key_pair_name
-  
   }
 
 
