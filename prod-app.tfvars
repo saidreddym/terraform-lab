@@ -1,12 +1,12 @@
 vpc_cidr_block = "12.0.0.0/16"
 
 tags = {
-  Customer      = "amb"
-  Department    = "Prod support"
-  Stream        = "Corporate Onboarding"
-  Environment   = "Prod"
+  Customer        = "amb"
+  Department      = "Prod support"
+  Stream          = "Corporate Onboarding"
+  Environment     = "Prod"
   "Customer Type" = "Bank"
-  Ticket        = "0lxs"
+  Ticket          = "0lxs"
 }
 
 vpc_name = "Prod-vpc"
@@ -18,7 +18,7 @@ azs = ["us-east-1a", "us-east-1b", "us-east-1c"]
 ec2_ami = "ami-0953476d60561c955"
 
 ec2_instance_type = "t2.micro"
-key_pair_name = "prod-key-pair"
+key_pair_name     = "prod-key-pair"
 
 public_ec2_count = 1
 

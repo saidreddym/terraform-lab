@@ -6,13 +6,13 @@ module "network" {
   private_subnet_cidrs      = var.private_subnet_cidrs
   public_subnet_cidrs       = var.public_subnet_cidrs
   private_subnet_amq_cidrs  = var.private_subnet_amq_cidrs
-  private_subnet_rmq_cidrs  = var.private_subnet_rmq_cidrs 
+  private_subnet_rmq_cidrs  = var.private_subnet_rmq_cidrs
   private_subnet_db_cidrs   = var.private_subnet_db_cidrs
   public_ec2_ingress_rules  = var.public_ec2_ingress_rules
   private_ec2_ingress_rules = var.private_ec2_ingress_rules
   azs                       = var.azs
   env                       = var.env
-  
+
 }
 module "s3" {
   source       = "./modules/s3"
@@ -35,10 +35,10 @@ module "ec2_mq_compute" {
   private_ec2_count          = var.private_ec2_count
   ec2_private_security_group = [module.network.ec2_private_sg_01]
   ec2_private_subnet_id      = module.network.dev_private_ec2_subnet-01.id
-  volume_data_size = var.volume_data_size
-  volume_root_size = var.volume_root_size
-  key_pair_name = var.key_pair_name
-  }
+  volume_data_size           = var.volume_data_size
+  volume_root_size           = var.volume_root_size
+  key_pair_name              = var.key_pair_name
+}
 
 
 

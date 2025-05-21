@@ -1,15 +1,15 @@
 vpc_cidr_block = "10.0.0.0/16"
 
 tags = {
-  Customer      = "xyz"
-  Department    = "Dev support"
-  Stream        = "Corporate Onboarding"
-  Environment   = "Dev"
+  Customer        = "xyz"
+  Department      = "Dev support"
+  Stream          = "Corporate Onboarding"
+  Environment     = "Dev"
   "Customer Type" = "PAAS"
-  Ticket        = "08765"
+  Ticket          = "08765"
 }
 
-vpc_name = "dev-vpc"
+vpc_name      = "dev-vpc"
 key_pair_name = "dev-key-pair"
 
 env = "dev"
