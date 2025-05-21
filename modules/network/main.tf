@@ -25,7 +25,7 @@ resource "aws_subnet" "dev_private_ec2_subnet-01" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-private-ec2-rt${count.index + 1}"
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-ec2-sn${count.index + 1}"
     },
   var.dev_tags)
 }
@@ -39,7 +39,7 @@ resource "aws_subnet" "dev_public_ec2_subnet-02" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-public-ec2-rt${count.index + 1}"
+      "Name" = "${var.dev_vpc_name}-${var.env}-public-ec2-sn${count.index + 1}"
     },
   var.dev_tags)
 }
@@ -57,7 +57,7 @@ resource "aws_subnet" "dev_private_amq_subnet-03" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-private-amq-rt${count.index + 1}"
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-amq-sn${count.index + 1}"
     },
   var.dev_tags)
 }
@@ -71,7 +71,7 @@ resource "aws_subnet" "dev_private_rmq_subnet-04" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-rt${count.index + 1}"
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-rmq-sn${count.index + 1}"
     },
   var.dev_tags)
 }
@@ -86,7 +86,7 @@ resource "aws_subnet" "dev_private_mongo_db_subnet_05" {
 
   tags = merge(
     {
-      "Name" = "${var.dev_vpc_name}-${var.env}-private-mongo-db-rt${count.index + 1}"
+      "Name" = "${var.dev_vpc_name}-${var.env}-private-mongo-db-sn${count.index + 1}"
     },
   var.dev_tags)
 }

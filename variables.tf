@@ -1,102 +1,19 @@
-variable "dev_cidr_block" {
-  default = "10.0.0.0/16"
-}
-#Approved-Tags
-variable "dev_tags" {
-  type = map(any)
-  default = {
-    "Customer"      = "xyz"
-    "Department"    = "Dev support"
-    "Stream"        = "Corporate Onboarding"
-    "Environment"   = "Dev"
-    "Customer Type" = "PAAS"
-    "Ticket"        = "08765"
-  }
-}
-variable "dev_vpc_name" {
-  default = "dev-vpc"
-}
-variable "env" {
-  default = "dev"
-}
-variable "azs" {
-  default = ["us-east-1a", "us-east-1b", "us-east-1c"]
-
-}
-variable "ec2_ami" {
-  default = "ami-0953476d60561c955"
-}
-variable "ec2_instance_type" {
-  default = "t2.micro"
-}
-variable "public_ec2_count" {
-  default = 1
-
-}
-variable "private_ec2_count" {
-  default = 1
-
-}
-variable "public_ec2_ingress_rules" {
-  type = list(object({
-    from_port = number
-    to_port   = number
-    protocol  = string
-    cidr_ipv4 = string
-  }))
-  default = [
-    {
-      from_port = 22
-      to_port   = 22
-      protocol  = "tcp"
-      cidr_ipv4 = "0.0.0.0/0" # placeholder; override as needed
-    },
-    {
-      from_port = 443
-      to_port   = 443
-      protocol  = "tcp"
-      cidr_ipv4 = "10.0.3.0/24"
-    }
-  ]
-}
-variable "private_ec2_ingress_rules" {
-  type = list(object({
-    from_port = number
-    to_port   = number
-    protocol  = string
-    cidr_ipv4 = string
-  }))
-  default = [
-    {
-      from_port = 0
-      to_port   = 65535
-      protocol  = "tcp"
-      cidr_ipv4 = "10.0.0.0/16" # placeholder; override as needed
-    }
-  ]
-}
-variable "volume_data_size" {
-  type = number
-  default = 25
-}
-variable "volume_root_size" {
-  type = number
-  default = 25
-}
-variable "private_subnet_cidrs" {
-  default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-}
-variable "public_subnet_cidrs" {
-  default = ["10.0.10.0/24", "10.0.20.0/24", "10.0.30.0/24"]
-}
-variable "private_subnet_amq_cidrs" {
-  default = ["10.0.40.0/24", "10.0.50.0/24", "10.0.60.0/24"]
-}
-variable "private_subnet_rmq_cidrs" {
-  default = ["10.0.70.0/24", "10.0.80.0/24", "10.0.90.0/24"]
-}
-variable "private_subnet_db_cidrs" {
-  default = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
-  
-}
+variable "dev_cidr_block" {}
+variable "dev_tags" {}
+variable "dev_vpc_name" {}
+variable "env" {}
+variable "azs" {}
+variable "ec2_ami" {}
+variable "ec2_instance_type" {}
+variable "public_ec2_count" {}
+variable "private_ec2_count" {}
+variable "public_ec2_ingress_rules" {}
+variable "private_ec2_ingress_rules" {}
+variable "volume_data_size" {}
+variable "volume_root_size" {}
+variable "private_subnet_cidrs" {}
+variable "public_subnet_cidrs" {}
+variable "private_subnet_amq_cidrs" {}
+variable "private_subnet_rmq_cidrs" {}
+variable "private_subnet_db_cidrs" {}
 
