@@ -1,6 +1,6 @@
-dev_cidr_block = "10.0.0.0/16"
+cidr_block = "10.0.0.0/16"
 
-dev_tags = {
+tags = {
   Customer      = "xyz"
   Department    = "Dev support"
   Stream        = "Corporate Onboarding"
@@ -9,7 +9,7 @@ dev_tags = {
   Ticket        = "08765"
 }
 
-dev_vpc_name = "dev-vpc"
+vpc_name = "dev-vpc"
 key_pair_name = "dev-key-pair"
 
 env = "dev"
