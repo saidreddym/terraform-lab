@@ -1,6 +1,6 @@
-Prod_cidr_block = "172.0.0.0/18"
+vpc_cidr_block = "172.0.0.0/18"
 
-Prod_tags = {
+tags = {
   Customer      = "amb"
   Department    = "Prod support"
   Stream        = "Corporate Onboarding"
@@ -9,7 +9,7 @@ Prod_tags = {
   Ticket        = "0lxs"
 }
 
-Prod_vpc_name = "Prod-vpc"
+vpc_name = "Prod-vpc"
 
 env = "Prod"
 
