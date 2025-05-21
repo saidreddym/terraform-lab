@@ -10,6 +10,7 @@ dev_tags = {
 }
 
 dev_vpc_name = "dev-vpc"
+key_pair_name = "dev-key-pair"
 
 env = "dev"
 

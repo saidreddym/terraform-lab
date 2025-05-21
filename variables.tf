@@ -16,4 +16,5 @@ variable "public_subnet_cidrs" {}
 variable "private_subnet_amq_cidrs" {}
 variable "private_subnet_rmq_cidrs" {}
 variable "private_subnet_db_cidrs" {}
+variable "key_pair_name" {}
 

@@ -18,6 +18,7 @@ azs = ["us-east-1a", "us-east-1b", "us-east-1c"]
 ec2_ami = "ami-0953476d60561c955"
 
 ec2_instance_type = "t2.micro"
+key_pair_name = "prod-key-pair"
 
 public_ec2_count = 1
 

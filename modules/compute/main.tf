@@ -4,8 +4,9 @@ resource "tls_private_key" "ec2_key" {
 }
 
 resource "aws_key_pair" "dev_ec2_key" {
-  key_name   = "dev-ec2-key"
+  key_name   = var.key_name
   public_key = tls_private_key.ec2_key.public_key_openssh
+  
 
   tags = merge(
     {
