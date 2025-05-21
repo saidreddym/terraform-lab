@@ -1,6 +1,6 @@
-variable "dev_cidr_block" {}
-variable "dev_tags" {}
-variable "dev_vpc_name" {}
+variable "vpc_cidr_block" {}
+variable "tags" {}
+variable "vpc_name" {}
 variable "env" {}
 variable "azs" {}
 variable "ec2_ami" {}

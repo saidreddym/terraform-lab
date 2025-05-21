@@ -1,8 +1,8 @@
 module "network" {
   source                    = "./modules/network"
-  dev_cidr_block            = var.dev_cidr_block
-  dev_tags                  = var.dev_tags
-  dev_vpc_name              = var.dev_vpc_name
+  dev_cidr_block            = var.vpc_cidr_block
+  dev_tags                  = var.tags
+  dev_vpc_name              = var.vpc_name
   private_subnet_cidrs      = var.private_subnet_cidrs
   public_subnet_cidrs       = var.public_subnet_cidrs
   private_subnet_amq_cidrs  = var.private_subnet_amq_cidrs
@@ -17,15 +17,15 @@ module "network" {
 module "s3" {
   source       = "./modules/s3"
   env          = var.env
-  dev_tags     = var.dev_tags
-  dev_vpc_name = var.dev_vpc_name
+  dev_tags     = var.tags
+  dev_vpc_name = var.vpc_name
 
 }
 module "ec2_mq_compute" {
   source                     = "./modules/compute"
   env                        = var.env
-  dev_tags                   = var.dev_tags
-  dev_vpc_name               = var.dev_vpc_name
+  dev_tags                   = var.tags
+  dev_vpc_name               = var.vpc_name
   ec2_instance_type          = var.ec2_instance_type
   ec2_ami                    = var.ec2_ami
   public_ec2_count           = var.public_ec2_count
