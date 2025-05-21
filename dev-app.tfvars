@@ -5,7 +5,7 @@ dev_tags = {
   Department    = "Dev support"
   Stream        = "Corporate Onboarding"
   Environment   = "Dev"
-  Customer Type = "PAAS"
+  "Customer Type" = "PAAS"
   Ticket        = "08765"
 }
 
