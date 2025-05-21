@@ -4,7 +4,8 @@ resource "random_pet" "bucket_suffix" {
 }
 
 resource "aws_s3_bucket" "dev-s3-bucket" {
-  bucket = "${var.env}-bkt-volpay-app-${lower(random_pet.bucket_suffix.id)}"
+  bucket = "${lower(var.env)}-bkt-volpay-app-${lower(random_pet.bucket_suffix.id)}"
+
 
   force_destroy = "false"
   acl    = "private"
