@@ -36,6 +36,7 @@ module "ec2_mq_compute" {
   ec2_private_subnet_id      = module.network.dev_private_ec2_subnet-01.id
   volume_data_size = var.volume_data_size
   volume_root_size = var.volume_root_size
+  key_pair_name = var.key_pair_name
   
   }
 
