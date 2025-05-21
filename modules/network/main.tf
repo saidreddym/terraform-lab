@@ -18,9 +18,9 @@ resource "aws_subnet" "dev_private_ec2_subnet-01" {
   cidr_block = element(var.private_subnet_cidrs, count.index)
   availability_zone       = var.azs[count.index]
   map_public_ip_on_launch = false
-  lifecycle {
+  /*lifecycle {
     create_before_destroy = true
-  }
+  }*/
 
 
   tags = merge(
