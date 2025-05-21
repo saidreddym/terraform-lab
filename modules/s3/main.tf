@@ -4,7 +4,8 @@ resource "random_pet" "bucket_suffix" {
 }
 
 resource "aws_s3_bucket" "dev-s3-bucket" {
-  bucket   = "${env}"-"bucket-volpay-app-${random_pet.bucket_suffix.id}"
+  bucket = "${var.env}-bucket-volpay-app-${random_pet.bucket_suffix.id}"
+
   force_destroy = "false"
   acl    = "private"
   tags = merge(
