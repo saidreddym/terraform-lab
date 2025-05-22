@@ -13,6 +13,7 @@ phases:
     commands:
       - echo "Initializing Terraform"
       - terraform init
+        - terraform init
   build:
     commands:
       - echo "Planning Terraform"
