@@ -9,19 +9,35 @@ phases:
       - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.6.3/terraform_1.6.3_linux_amd64.zip
       - unzip terraform.zip
       - mv terraform /usr/local/bin/
+      - terraform -version
+
   pre_build:
     commands:
+      - echo "Rendering backend configuration with Jinja (if applicable)"
+      - cd accounts/terraform/
+      - python render_backend.py || echo "No backend rendering required"
+      - echo "$TF_BACKEND_BUCKET"
+      - echo "$TF_BACKEND_REGION"
+      - echo "$TF_BACKEND_KEY"
+      - echo "$DEV_TFVARS_FILE"
+      - echo "Selecting or creating Terraform workspace 'dev'"
+      - terraform workspace select -or-create dev
       - echo "Initializing Terraform"
       - terraform init
-        - terraform init
+       
+      
   build:
     commands:
-      - echo "Planning Terraform"
-      - terraform workspace select dev
-      - terraform init
-      - terraform plan -var-file=dev-app.tfvars -out=tfplan.out
-      - terraform apply -var-file=dev-app.tfvars --auto-approve
+      - cd accounts/terraform/
+      - terraform plan -var-file=$DEV_TFVARS_FILE || exit 1
+      
+
   post_build:
     commands:
-      - echo "Applying Terraform"
-      - terraform apply -auto-approve tfplan.out
+      - cd accounts/terraform/
+      - echo "Applying Terraform Plan"
+      - terraform apply -var-file=$DEV_TFVARS_FILE --auto-approve
+
+artifacts:
+  files:
+    - '**/*'
